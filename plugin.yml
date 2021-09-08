@@ -1,0 +1,97 @@
+name: TrappedPvP
+main: com.marcello.Main
+version: 1.0
+author: uRecover_
+commands:
+  gladiator:
+  kit:
+  kits:
+  lojaperm:
+  register:
+  login:
+  mudarsenha:
+  textura:
+  evento:
+  menufps:
+  simulator:
+  ultils:
+  sc:
+  build:
+  givekills:
+  head:
+  help:  
+  rank:
+  liga:
+  gm:
+  tell:    
+  tp:  
+  warps:
+  fisherman:
+  inv:    
+  spawn:
+  bc:
+  sumo:
+  report:    
+  fps:
+  challenge:
+  main:   
+  admin:     
+  tags:
+  tag:       
+  arena:
+  tpall: 
+  met: 
+  SetArena:
+  staff:
+  ajuda:    
+  coins:
+  togglepvp:
+  ping:
+  tphere:
+  morrer:
+  monitorar:
+  admins:
+  monitorgui:
+  visgui:
+  invis:
+  vis:
+  givekit:
+  manutencao:
+  givepermission:
+  skit:
+  chat:
+  atualizar:
+  sortearkit:
+  sortearvip:
+  promover:
+  givevip:
+  groupset:
+  removepermission:
+  permissionslist:
+  removekit:
+  score:
+  perfil:
+  autosoup:
+  aplicar:
+  kits2:
+  setmotd:
+  givexp:
+  upar:
+  loja:
+  regras:
+  voar:
+     aliases: [fly]
+  youtuber:
+     aliases: [yt]     
+  clearchat:
+     aliases: [cc]
+  testclick:
+     aliases: [ct]
+  topkills:
+     aliases: [topkill, top]
+  topdeaths:
+     aliases: [topdeath, topd]
+  topcoins:
+     aliases: [topcoin, topc]
+  speed1v1:
+  1v1:
