@@ -1,5 +1,4 @@
 package com.marcello.comandos;
 
-public class MdrCommand
-{
+public class MdrCommand {
 }

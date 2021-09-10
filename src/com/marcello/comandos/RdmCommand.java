@@ -1,5 +1,4 @@
 package com.marcello.comandos;
 
-public class RdmCommand
-{
+public class RdmCommand {
 }
