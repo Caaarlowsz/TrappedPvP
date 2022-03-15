@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.api.HorarioAPI;
 import com.marcello.manager.ListKits;
 
@@ -26,13 +26,13 @@ public class SorteioKitCommand implements CommandExecutor {
 					Kit.add(s.name().toLowerCase());
 				}
 			}
-			Bukkit.broadcastMessage("              §c§lReverse§f§lMC         ");
+			Bukkit.broadcastMessage("              ï¿½cï¿½lReverseï¿½fï¿½lMC         ");
 			Bukkit.broadcastMessage("");
-			Bukkit.broadcastMessage("§7§lESTAMOS INICIANDO UM §c§lSORTEIO§7§l!  ");
-			Bukkit.broadcastMessage("§7§lO PR\u00caMIO SER\u00c0 UM KIT ALEATORIO!       ");
-			Bukkit.broadcastMessage("§7§lHORARARIO DE INICIO: §c§l" + HorarioAPI.getHorario());
+			Bukkit.broadcastMessage("ï¿½7ï¿½lESTAMOS INICIANDO UM ï¿½cï¿½lSORTEIOï¿½7ï¿½l!  ");
+			Bukkit.broadcastMessage("ï¿½7ï¿½lO PR\u00caMIO SER\u00c0 UM KIT ALEATORIO!       ");
+			Bukkit.broadcastMessage("ï¿½7ï¿½lHORARARIO DE INICIO: ï¿½cï¿½l" + HorarioAPI.getHorario());
 			Bukkit.broadcastMessage("");
-			Bukkit.broadcastMessage("              §7§l» §c§LSORTEIO             ");
+			Bukkit.broadcastMessage("              ï¿½7ï¿½lï¿½ ï¿½cï¿½LSORTEIO             ");
 			new BukkitRunnable() {
 				public void run() {
 					final ArrayList<Player> Players = new ArrayList<Player>();
@@ -44,20 +44,20 @@ public class SorteioKitCommand implements CommandExecutor {
 						}
 					}
 					final Player random = Players.get(new Random().nextInt(Players.size()));
-					Bukkit.broadcastMessage("            §c§lReverse§f§lMC  ");
+					Bukkit.broadcastMessage("            ï¿½cï¿½lReverseï¿½fï¿½lMC  ");
 					Bukkit.broadcastMessage("");
-					Bukkit.broadcastMessage("§7§lO SORTEIO DO KIT FOI FINALIZADO");
-					Bukkit.broadcastMessage("§7§lO GANHADOR FOI: §c" + random.getName());
-					Bukkit.broadcastMessage("§7§lHORARIO FINALIZADO: §c" + HorarioAPI.getHorario());
+					Bukkit.broadcastMessage("ï¿½7ï¿½lO SORTEIO DO KIT FOI FINALIZADO");
+					Bukkit.broadcastMessage("ï¿½7ï¿½lO GANHADOR FOI: ï¿½c" + random.getName());
+					Bukkit.broadcastMessage("ï¿½7ï¿½lHORARIO FINALIZADO: ï¿½c" + HorarioAPI.getHorario());
 					final Random r = new Random();
 					final int x = r.nextInt(Kit.size());
-					Bukkit.broadcastMessage("§7§lO KIT GANHO FOI: §c§l" + Kit.get(x));
+					Bukkit.broadcastMessage("ï¿½7ï¿½lO KIT GANHO FOI: ï¿½cï¿½l" + Kit.get(x));
 					Bukkit.broadcastMessage("");
-					Bukkit.broadcastMessage("              §7§l» §c§LSORTEIO             ");
+					Bukkit.broadcastMessage("              ï¿½7ï¿½lï¿½ ï¿½cï¿½LSORTEIO             ");
 					Bukkit.dispatchCommand((CommandSender) Bukkit.getConsoleSender(),
 							"pex user " + random.getName() + " add kit." + Kit.get(x));
 				}
-			}.runTaskLater((Plugin) Main.instance, 200L);
+			}.runTaskLater((Plugin) TrappedPvP.instance, 200L);
 		}
 		return false;
 	}

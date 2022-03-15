@@ -25,7 +25,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Gladiator implements Listener {
@@ -74,7 +74,7 @@ public class Gladiator implements Listener {
 						(double) (p.getLocation().getBlockY() + 73), (double) (p.getLocation().getBlockZ() - 8));
 				if (Gladiator.lutando.containsKey(p.getName()) || Gladiator.lutando.containsKey(r.getName())) {
 					event.setCancelled(true);
-					p.sendMessage("§c§lGLADIATOR §7Voc\u00ea ja est\u00e1 em uma arena gladiator");
+					p.sendMessage("ï¿½cï¿½lGLADIATOR ï¿½7Voc\u00ea ja est\u00e1 em uma arena gladiator");
 					return;
 				}
 				final Integer currentID = this.nextID;
@@ -95,7 +95,7 @@ public class Gladiator implements Listener {
 								if (!b.isEmpty()) {
 									event.setCancelled(true);
 									p.sendMessage(
-											"§c§lGLADIATOR §7Possuem blocos acima n\u00e3o \u00e9 possivel criar arena aqui");
+											"ï¿½cï¿½lGLADIATOR ï¿½7Possuem blocos acima n\u00e3o \u00e9 possivel criar arena aqui");
 									return;
 								}
 								if (bY == 10) {
@@ -119,18 +119,18 @@ public class Gladiator implements Listener {
 					p.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 110, 5));
 					r.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 110, 5));
 					p.sendMessage(
-							"§c§lGLADIATOR §7Voc\u00ea desafiou um player para uma batalha, ambos possuem 5 segundos de invesibilidade para se preparar");
+							"ï¿½cï¿½lGLADIATOR ï¿½7Voc\u00ea desafiou um player para uma batalha, ambos possuem 5 segundos de invesibilidade para se preparar");
 					p.sendMessage(
-							"§c§lGLADIATOR §7Observa\u00e7\u00e3o, se passar 4 minutos na arena e ninguem morrer ambos voltaram para os locais de inicio, \u00e9 a arena ser\u00e1 deletada");
+							"ï¿½cï¿½lGLADIATOR ï¿½7Observa\u00e7\u00e3o, se passar 4 minutos na arena e ninguem morrer ambos voltaram para os locais de inicio, \u00e9 a arena ser\u00e1 deletada");
 					r.sendMessage(
-							"§c§lGLADIATOR §7Voc\u00ea foi desafiado por um player para uma batalha, ambos possuem 5 segundos de invesibilidade para se preparar");
+							"ï¿½cï¿½lGLADIATOR ï¿½7Voc\u00ea foi desafiado por um player para uma batalha, ambos possuem 5 segundos de invesibilidade para se preparar");
 					r.sendMessage(
-							"§c§lGLADIATOR §7Observa\u00e7\u00e3o, se passar 4 minutos na arena e ninguem morrer ambos voltaram para os locais de inicio, \u00e9 a arena ser\u00e1 deletada");
+							"ï¿½cï¿½lGLADIATOR ï¿½7Observa\u00e7\u00e3o, se passar 4 minutos na arena e ninguem morrer ambos voltaram para os locais de inicio, \u00e9 a arena ser\u00e1 deletada");
 					Gladiator.lutando.put(p.getName(), r.getName());
 					Gladiator.lutando.put(r.getName(), p.getName());
 					Gladiator.gladgladiator.add(p.getName());
 					Gladiator.gladgladiator.add(r.getName());
-					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+					this.id2 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -143,7 +143,7 @@ public class Gladiator implements Listener {
 									}
 								}
 							}, 2400L);
-					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+					this.id1 = Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 							(Runnable) new Runnable() {
 								@Override
 								public void run() {
@@ -160,9 +160,9 @@ public class Gladiator implements Listener {
 										Gladiator.this.oldl.remove(p.getName());
 										Gladiator.this.oldl.remove(r.getName());
 										p.sendMessage(
-												"§c§lGLADIATOR §7Ninguem venceu a batalha, voc\u00ea voltou para o local de inico");
+												"ï¿½cï¿½lGLADIATOR ï¿½7Ninguem venceu a batalha, voc\u00ea voltou para o local de inico");
 										r.sendMessage(
-												"§c§lGLADIATOR §7Ninguem venceu a batalha, voc\u00ea voltou para o local de inico");
+												"ï¿½cï¿½lGLADIATOR ï¿½7Ninguem venceu a batalha, voc\u00ea voltou para o local de inico");
 										final Location loc = Gladiator.this.localizacao.get(p);
 										final List<Location> cuboid = new ArrayList<Location>();
 										for (int bX = -10; bX <= 10; ++bX) {
@@ -208,7 +208,7 @@ public class Gladiator implements Listener {
 		if (p.getItemInHand().getType() == Material.IRON_FENCE && KitAPI.getKit(p) == "Gladiator") {
 			e.setCancelled(true);
 			p.updateInventory();
-			p.sendMessage("§c§lGLADIATOR §7Voc\u00ea n\u00e3o pode dropar o item do gladiator");
+			p.sendMessage("ï¿½cï¿½lGLADIATOR ï¿½7Voc\u00ea n\u00e3o pode dropar o item do gladiator");
 		}
 	}
 
@@ -219,7 +219,7 @@ public class Gladiator implements Listener {
 				&& Gladiator.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getClickedBlock().setType(Material.BEDROCK);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -237,7 +237,7 @@ public class Gladiator implements Listener {
 				&& Gladiator.lutando.containsKey(e.getPlayer().getName())) {
 			e.setCancelled(true);
 			e.getBlock().setType(Material.BEDROCK);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (e.getPlayer().getGameMode() != GameMode.CREATIVE
@@ -260,8 +260,8 @@ public class Gladiator implements Listener {
 			Gladiator.gladgladiator.remove(t.getName());
 			final Location old = this.oldl.get(t.getName());
 			t.teleport(old);
-			t.sendMessage("§c§lGLADIATOR §7O jogador §c" + p.getName() + " §7deslogou no meio da batalha");
-			t.sendMessage("§c§lGLADIATOR §7Voc\u00ea ganhou a batalha");
+			t.sendMessage("ï¿½cï¿½lGLADIATOR ï¿½7O jogador ï¿½c" + p.getName() + " ï¿½7deslogou no meio da batalha");
+			t.sendMessage("ï¿½cï¿½lGLADIATOR ï¿½7Voc\u00ea ganhou a batalha");
 			Bukkit.getScheduler().cancelTask(this.id1);
 			Bukkit.getScheduler().cancelTask(this.id2);
 			t.removePotionEffect(PotionEffectType.WITHER);
@@ -303,7 +303,7 @@ public class Gladiator implements Listener {
 			final Location old = this.oldl.get(p.getName());
 			k.teleport(old);
 			k.sendMessage(
-					"§c§lGLADIATOR §7Voc\u00ea venceu a batalha contra §c" + p.getName() + ChatColor.GREEN + "§a!");
+					"ï¿½cï¿½lGLADIATOR ï¿½7Voc\u00ea venceu a batalha contra ï¿½c" + p.getName() + ChatColor.GREEN + "ï¿½a!");
 			Bukkit.getScheduler().cancelTask(this.id1);
 			Bukkit.getScheduler().cancelTask(this.id2);
 			k.removePotionEffect(PotionEffectType.WITHER);

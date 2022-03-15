@@ -10,30 +10,30 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 import com.marcello.utils.WarpsAPI;
 
 public class FishermanCommand extends WarpsAPI implements CommandExecutor, Listener {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoc\u00ea N\u00e3o Pode usar isso No Console!");
+			sender.sendMessage("ï¿½cVoc\u00ea N\u00e3o Pode usar isso No Console!");
 			return true;
 		}
 		final Player p = (Player) sender;
 		if (args.length == 0) {
 			if (KitAPI.getKit(p) != "Nenhum") {
 				p.sendMessage(
-						"§c§LKIT §7Voc\u00ea ja est\u00e1 utilizando um kit. remova-o para poder selecionar outro kit");
+						"ï¿½cï¿½LKIT ï¿½7Voc\u00ea ja est\u00e1 utilizando um kit. remova-o para poder selecionar outro kit");
 				return true;
 			}
 			if (KitAPI.getKit(p) == "Nenhum") {
 				FishermanCommand.segundos.add(p.getDisplayName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (FishermanCommand.segundos.contains(p.getDisplayName())) {
-							p.sendMessage("§2§LWARP §7Voc\u00ea entrou para a warp §a§lPARKUOR");
+							p.sendMessage("ï¿½2ï¿½LWARP ï¿½7Voc\u00ea entrou para a warp ï¿½aï¿½lPARKUOR");
 							p.playSound(p.getLocation(), Sound.NOTE_PLING, 1.0f, 1.0f);
 							WarpsAPI.ir(p, "Fisherman1");
 							p.getInventory().clear();
@@ -49,7 +49,7 @@ public class FishermanCommand extends WarpsAPI implements CommandExecutor, Liste
 			}
 		} else if (args[0].equalsIgnoreCase("set") && p.hasPermission("cmd.setarenas")) {
 			WarpsAPI.Set(p, "Fisherman1");
-			p.sendMessage("§2§LWARP §7Voc\u00ea setou a warp §a§lPARKUOR");
+			p.sendMessage("ï¿½2ï¿½LWARP ï¿½7Voc\u00ea setou a warp ï¿½aï¿½lPARKUOR");
 		}
 		return false;
 	}

@@ -11,7 +11,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Ninja implements Listener {
@@ -31,14 +31,14 @@ public class Ninja implements Listener {
 			if (KitAPI.getKit(p) == "Ninja") {
 				Ninja.NinjaPlayer.put(p.getName(), t);
 				Ninja.NinjaTime.put(p.getName(), 10);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (Ninja.NinjaTime.get(p.getName()) <= 0) {
 							if (KitAPI.getKit(p) == "Ninja" && KitAPI.KitDelay.containsKey(p.getName())) {
-								p.sendMessage("§c§lKIT §7Voc\u00ea ficou muito tempo sem hitar §c"
+								p.sendMessage("ï¿½cï¿½lKIT ï¿½7Voc\u00ea ficou muito tempo sem hitar ï¿½c"
 										+ Ninja.NinjaPlayer.get(p.getName())
-										+ " §7n\u00e3o pode mais se teleportar at\u00e9 ele");
+										+ " ï¿½7n\u00e3o pode mais se teleportar at\u00e9 ele");
 							}
 							Ninja.NinjaPlayer.remove(p.getName());
 						}
@@ -53,29 +53,29 @@ public class Ninja implements Listener {
 		final Player p = e.getPlayer();
 		if (p.isSneaking() && KitAPI.getKit(p) == "Ninja") {
 			if (KitAPI.KitDelay.containsKey(p.getName())) {
-				p.sendMessage("§c§lKIT §7Seu kit §4§lNINJA §7est\u00e1 em cooldown aguarde alguns segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lNINJA ï¿½7est\u00e1 em cooldown aguarde alguns segundos");
 				return;
 			}
 			if (!Ninja.NinjaPlayer.containsKey(p.getName())) {
 				p.sendMessage(
-						"§c§lKIT §7Voc\u00ea n\u00e3o hitou ningu\u00e9m, hite alguem para pode utilizar seu kit §4§lNINJA");
+						"ï¿½cï¿½lKIT ï¿½7Voc\u00ea n\u00e3o hitou ningu\u00e9m, hite alguem para pode utilizar seu kit ï¿½4ï¿½lNINJA");
 				return;
 			}
 			final Player t = Ninja.NinjaPlayer.get(p.getName());
 			if (p.getLocation().distance(t.getLocation()) > 35.0) {
-				p.sendMessage("§c§lKIT §7O ultimo player hitado est\u00e1 muito longe");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7O ultimo player hitado est\u00e1 muito longe");
 				return;
 			}
 			p.teleport((Entity) t);
-			p.sendMessage("§c§lKIT §7Voc\u00ea foi teleportado at\u00e9 §c"
-					+ Ninja.NinjaPlayer.get(String.valueOf(p.getName()) + "§7 usando seu kit §4§lNINJA"));
+			p.sendMessage("ï¿½cï¿½lKIT ï¿½7Voc\u00ea foi teleportado at\u00e9 ï¿½c"
+					+ Ninja.NinjaPlayer.get(String.valueOf(p.getName()) + "ï¿½7 usando seu kit ï¿½4ï¿½lNINJA"));
 			KitAPI.KitDelay.put(p.getName(), 10);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (KitAPI.KitDelay.containsKey(p.getName()) && KitAPI.KitDelay.get(p.getName()) <= 0
 							&& KitAPI.getKit(p) == "Ninja") {
-						p.sendMessage("§c§lKIT §7Seu kit §4§lNINJA §7n\u00e3o est\u00e1 mais em cooldown");
+						p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lNINJA ï¿½7n\u00e3o est\u00e1 mais em cooldown");
 						KitAPI.KitDelay.remove(p.getName());
 					}
 				}

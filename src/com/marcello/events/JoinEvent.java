@@ -9,7 +9,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.score.Score;
 import com.marcello.utils.KitAPI;
 import com.marcello.utils.WarpsAPI;
@@ -33,13 +33,13 @@ public class JoinEvent implements Listener {
 		final Player p = e.getPlayer();
 		p.setGameMode(GameMode.SURVIVAL);
 		WarpsAPI.ir(p, "spawn");
-		if (!Main.getInstace().stats.contains(new StringBuilder().append(p.getUniqueId()).toString())) {
-			Main.getInstace().stats.set(p.getUniqueId() + ".Kills", (Object) 0);
-			Main.getInstace().stats.set(p.getUniqueId() + ".Deaths", (Object) 0);
-			Main.getInstace().stats.set(p.getUniqueId() + ".Money", (Object) 0);
-			Main.getInstace().stats.set(p.getUniqueId() + ".Cash", (Object) 0);
-			p.kickPlayer("         §cEstamos gerando suas informa\u00e7\u00f5es, por favor, entre novamente!");
-			Main.getInstace().save();
+		if (!TrappedPvP.getInstace().stats.contains(new StringBuilder().append(p.getUniqueId()).toString())) {
+			TrappedPvP.getInstace().stats.set(p.getUniqueId() + ".Kills", (Object) 0);
+			TrappedPvP.getInstace().stats.set(p.getUniqueId() + ".Deaths", (Object) 0);
+			TrappedPvP.getInstace().stats.set(p.getUniqueId() + ".Money", (Object) 0);
+			TrappedPvP.getInstace().stats.set(p.getUniqueId() + ".Cash", (Object) 0);
+			p.kickPlayer("         ï¿½cEstamos gerando suas informa\u00e7\u00f5es, por favor, entre novamente!");
+			TrappedPvP.getInstace().save();
 		}
 		KitAPI.KitDelay.remove(p.getName());
 		e.setJoinMessage((String) null);
@@ -195,25 +195,25 @@ public class JoinEvent implements Listener {
 		p.sendMessage("");
 		p.sendMessage("");
 		p.sendMessage("");
-		p.sendMessage("§7Seja bem vindo ao servidor §c§lReverse§f§lMC");
-		p.sendMessage("§7Achou algum hacker ou bug? /report.");
+		p.sendMessage("ï¿½7Seja bem vindo ao servidor ï¿½cï¿½lReverseï¿½fï¿½lMC");
+		p.sendMessage("ï¿½7Achou algum hacker ou bug? /report.");
 		JoinEvent.kits = new ItemStack(Material.CHEST);
-		(JoinEvent.kitsmeta = JoinEvent.kits.getItemMeta()).setDisplayName("§bKits §7(Clique)");
+		(JoinEvent.kitsmeta = JoinEvent.kits.getItemMeta()).setDisplayName("ï¿½bKits ï¿½7(Clique)");
 		JoinEvent.kits.setItemMeta(JoinEvent.kitsmeta);
 		JoinEvent.admins = new ItemStack(Material.getMaterial(397), 1, (short) 3);
-		(JoinEvent.adminsmeta = JoinEvent.admins.getItemMeta()).setDisplayName("§bUltils §7(Clique)");
+		(JoinEvent.adminsmeta = JoinEvent.admins.getItemMeta()).setDisplayName("ï¿½bUltils ï¿½7(Clique)");
 		JoinEvent.admins.setItemMeta(JoinEvent.adminsmeta);
 		JoinEvent.warps = new ItemStack(Material.BOOK);
-		(JoinEvent.warpsmeta = JoinEvent.warps.getItemMeta()).setDisplayName("§bWarps §7(Clique)");
+		(JoinEvent.warpsmeta = JoinEvent.warps.getItemMeta()).setDisplayName("ï¿½bWarps ï¿½7(Clique)");
 		JoinEvent.warps.setItemMeta(JoinEvent.warpsmeta);
 		JoinEvent.click = new ItemStack(Material.PAPER);
-		(JoinEvent.clickmeta = JoinEvent.click.getItemMeta()).setDisplayName("§bClick §7(Clique)");
+		(JoinEvent.clickmeta = JoinEvent.click.getItemMeta()).setDisplayName("ï¿½bClick ï¿½7(Clique)");
 		JoinEvent.click.setItemMeta(JoinEvent.clickmeta);
 		JoinEvent.loja = new ItemStack(Material.DIAMOND);
-		(JoinEvent.lojameta = JoinEvent.loja.getItemMeta()).setDisplayName("§bLoja §7(Clique)");
+		(JoinEvent.lojameta = JoinEvent.loja.getItemMeta()).setDisplayName("ï¿½bLoja ï¿½7(Clique)");
 		JoinEvent.loja.setItemMeta(JoinEvent.lojameta);
 		JoinEvent.perfil = new ItemStack(Material.ANVIL);
-		(JoinEvent.perfilmeta = JoinEvent.perfil.getItemMeta()).setDisplayName("§bPerfil §7(Clique)");
+		(JoinEvent.perfilmeta = JoinEvent.perfil.getItemMeta()).setDisplayName("ï¿½bPerfil ï¿½7(Clique)");
 		JoinEvent.perfil.setItemMeta(JoinEvent.perfilmeta);
 		p.getInventory().setItem(1, JoinEvent.loja);
 		p.getInventory().setItem(5, JoinEvent.warps);

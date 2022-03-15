@@ -7,7 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class CooldownAPI {
 	public static HashMap<String, Long> Cooldown;
@@ -18,7 +18,7 @@ public class CooldownAPI {
 
 	public static void addCooldown(final Player jogador, final int Tempo) {
 		CooldownAPI.Cooldown.put(jogador.getName(), System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(Tempo));
-		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getPlugin(null),
+		Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getPlugin(null),
 				(Runnable) new Runnable() {
 					@Override
 					public void run() {

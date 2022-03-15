@@ -23,7 +23,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Deshviper implements Listener {
@@ -61,7 +61,7 @@ public class Deshviper implements Listener {
 				event.setCancelled(true);
 			}
 			if (Deshviper.cooldownm.contains(p)) {
-				p.sendMessage("§c§lKIT §7Seu kit §4§lDESHVIPER§7 est\u00e1 em cooldown aguarde alguns segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lDESHVIPERï¿½7 est\u00e1 em cooldown aguarde alguns segundos");
 				return;
 			}
 			Deshviper.cooldownm.add(p);
@@ -97,42 +97,42 @@ public class Deshviper implements Listener {
 			p.getInventory().setLeggings(Calss);
 			p.getInventory().setBoots(Bota);
 			p.updateInventory();
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 						}
 					}, 0L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 						}
 					}, 20L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 						}
 					}, 30L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 						}
 					}, 40L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							p.getWorld().playEffect(p.getLocation(), Effect.MOBSPAWNER_FLAMES, 1);
 						}
 					}, 50L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -149,7 +149,7 @@ public class Deshviper implements Listener {
 							p.getInventory().setBoots(new ItemStack(Material.AIR));
 						}
 					}, 60L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					Deshviper.cooldownm.remove(p);

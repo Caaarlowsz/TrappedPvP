@@ -8,77 +8,77 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class ReloadCommand implements CommandExecutor {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cApenas jogadores podem executar esse comando");
+			sender.sendMessage("ï¿½cApenas jogadores podem executar esse comando");
 			return true;
 		}
 		final Player p = (Player) sender;
 		if (args.length == 0 && cmd.getName().equalsIgnoreCase("atualizar")) {
 			if (p.hasPermission("cmd.atualizar")) {
-				p.sendMessage("§a§lRELOAD §7Voce iniciou A Reinicializa\u00e7\u00e3o!");
-				Bukkit.broadcastMessage("§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a30 §7segundos");
+				p.sendMessage("ï¿½aï¿½lRELOAD ï¿½7Voce iniciou A Reinicializa\u00e7\u00e3o!");
+				Bukkit.broadcastMessage("ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a30 ï¿½7segundos");
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.broadcastMessage(
-								"§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a20 §7segundos");
+								"ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a20 ï¿½7segundos");
 					}
-				}.runTaskLater((Plugin) Main.instance, 200L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 200L);
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.broadcastMessage(
-								"§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a10 §7segundos");
+								"ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a10 ï¿½7segundos");
 					}
-				}.runTaskLater((Plugin) Main.instance, 400L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 400L);
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.broadcastMessage(
-								"§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a5 §7segundos");
+								"ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a5 ï¿½7segundos");
 					}
-				}.runTaskLater((Plugin) Main.instance, 500L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 500L);
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.broadcastMessage(
-								"§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a4 §7segundos");
+								"ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a4 ï¿½7segundos");
 					}
-				}.runTaskLater((Plugin) Main.instance, 520L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 520L);
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.broadcastMessage(
-								"§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a3 §7segundos");
+								"ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a3 ï¿½7segundos");
 					}
-				}.runTaskLater((Plugin) Main.instance, 540L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 540L);
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.broadcastMessage(
-								"§a§lRELOAD §7Servidor sendo reiniciado automaticamente §a2 §7segundos");
+								"ï¿½aï¿½lRELOAD ï¿½7Servidor sendo reiniciado automaticamente ï¿½a2 ï¿½7segundos");
 					}
-				}.runTaskLater((Plugin) Main.instance, 560L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 560L);
 				new BukkitRunnable() {
 					public void run() {
-						Bukkit.broadcastMessage("§a§lRELOAD §7O servidor est\u00e1 sendo atualizado por favor aguarde");
+						Bukkit.broadcastMessage("ï¿½aï¿½lRELOAD ï¿½7O servidor est\u00e1 sendo atualizado por favor aguarde");
 					}
-				}.runTaskLater((Plugin) Main.instance, 580L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 580L);
 				new BukkitRunnable() {
 					public void run() {
 						Player[] onlinePlayers;
 						for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 							final Player s = onlinePlayers[i];
 							s.kickPlayer(
-									"§c§lReverse§f§lMC   \n§7este servidor foi reiniciado!\n§7estamos preparando tudo...\n\n\n§e@ServerReverse ");
+									"ï¿½cï¿½lReverseï¿½fï¿½lMC   \nï¿½7este servidor foi reiniciado!\nï¿½7estamos preparando tudo...\n\n\nï¿½e@ServerReverse ");
 						}
 					}
-				}.runTaskLater((Plugin) Main.instance, 600L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 600L);
 				new BukkitRunnable() {
 					public void run() {
 						Bukkit.shutdown();
 					}
-				}.runTaskLater((Plugin) Main.instance, 640L);
+				}.runTaskLater((Plugin) TrappedPvP.instance, 640L);
 			} else {
-				p.sendMessage("§c§lPERMISSAO §7Voc\u00ea n\u00e3o possui permiss\u00e3o para este item");
+				p.sendMessage("ï¿½cï¿½lPERMISSAO ï¿½7Voc\u00ea n\u00e3o possui permiss\u00e3o para este item");
 			}
 		}
 		return false;

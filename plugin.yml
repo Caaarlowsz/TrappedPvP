@@ -1,5 +1,5 @@
 name: TrappedPvP
-main: com.marcello.Main
+main: com.github.caaarlowsz.trappedmc.kitpvp.Main
 version: 1.0
 author: uRecover_
 commands:

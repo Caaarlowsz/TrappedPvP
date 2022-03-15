@@ -13,7 +13,7 @@ import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Hulk implements Listener {
@@ -37,14 +37,14 @@ public class Hulk implements Listener {
 				if (KitAPI.getKit(p) == "Hulk") {
 					if (p.getItemInHand().getType().equals((Object) Material.STONE_SWORD)) {
 						if (this.cooldown.contains(p)) {
-							p.sendMessage("§c§lKIT §7Seu kit §4§lHULK§7 est\u00e1 em cooldown aguarde alguns segundos");
+							p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lHULKï¿½7 est\u00e1 em cooldown aguarde alguns segundos");
 						} else if (p.getPassenger() == null) {
 							p.setPassenger((Entity) d);
-							d.sendMessage("§c§lKIT §7Voc\u00ea foi pego por um §4§lHULK §7aperte shift para sair");
+							d.sendMessage("ï¿½cï¿½lKIT ï¿½7Voc\u00ea foi pego por um ï¿½4ï¿½lHULK ï¿½7aperte shift para sair");
 							this.cooldown.add(p);
 							p.setVelocity(new Vector());
 							p.playSound(p.getLocation(), Sound.ZOMBIE_METAL, 4.0f, 4.0f);
-							Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+							Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 									(Runnable) new Runnable() {
 										@Override
 										public void run() {
@@ -52,11 +52,11 @@ public class Hulk implements Listener {
 										}
 									}, 200L);
 						} else {
-							p.sendMessage("§c§lKIT §7Voc\u00ea ja possui alguem na sua cabe\u00e7a");
+							p.sendMessage("ï¿½cï¿½lKIT ï¿½7Voc\u00ea ja possui alguem na sua cabe\u00e7a");
 						}
 					}
 				} else {
-					p.sendMessage("§c§lKIT §7Este player tamb\u00e9m est\u00e1 utilizando kit §4§lHULK");
+					p.sendMessage("ï¿½cï¿½lKIT ï¿½7Este player tamb\u00e9m est\u00e1 utilizando kit ï¿½4ï¿½lHULK");
 				}
 			}
 		}

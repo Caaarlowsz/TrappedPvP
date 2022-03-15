@@ -16,7 +16,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class ClicktestCommand implements Listener, CommandExecutor {
 	public static ItemStack kits;
@@ -44,53 +44,53 @@ public class ClicktestCommand implements Listener, CommandExecutor {
 			return true;
 		}
 		if (ClicktestCommand.jaesta.contains(p.getName())) {
-			p.sendMessage("§b§LCLICKTEST §7Voc\u00ea ja est\u00e1 em um testclick");
+			p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Voc\u00ea ja est\u00e1 em um testclick");
 			return true;
 		}
-		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				ClicktestCommand.jaesta.add(p.getName());
-				p.sendMessage("§b§LCLICKTEST §7Iniciando em §b3 §7segundos!");
+				p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Iniciando em ï¿½b3 ï¿½7segundos!");
 			}
 		}, 20L);
-		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
-				p.sendMessage("§b§LCLICKTEST §7Iniciando em §b2 §7segundos!");
+				p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Iniciando em ï¿½b2 ï¿½7segundos!");
 			}
 		}, 40L);
-		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
-				p.sendMessage("§b§LCLICKTEST §7Iniciando em §b1 §7segundos!");
+				p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Iniciando em ï¿½b1 ï¿½7segundos!");
 			}
 		}, 60L);
-		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleAsyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
-				p.sendMessage("§b§LCLICKTEST §7foi iniciado com sucesso!");
-				p.sendMessage("§b§LCLICKTEST §7Lembre-se de clickar sem nada na m\u00e3o!");
+				p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7foi iniciado com sucesso!");
+				p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Lembre-se de clickar sem nada na m\u00e3o!");
 				ClicktestCommand.click.add(p.getName());
 			}
 		}, 80L);
-		Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+		Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				if (ClicktestCommand.click.contains(p.getName())) {
 					ClicktestCommand.jaesta.remove(p.getName());
 					ClicktestCommand.click.remove(p.getName());
-					p.sendMessage("§b§LCLICKTEST §7Voce finalizou o Teste!");
-					p.sendMessage("§b§LCLICKTEST §7Calculando Resultados...");
-					p.sendMessage("§E");
-					p.sendMessage("§E");
-					p.sendMessage("§E");
-					p.sendMessage("§E");
-					p.sendMessage("§b§LCLICKTEST §7Resultados Calculados:");
-					p.sendMessage("§7");
-					p.sendMessage("§7» Tempo do teste §b10 Segundos");
-					p.sendMessage("§7» Clicks que voc\u00ea deu §b" + p.getLevel());
-					p.sendMessage("§E");
+					p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Voce finalizou o Teste!");
+					p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Calculando Resultados...");
+					p.sendMessage("ï¿½E");
+					p.sendMessage("ï¿½E");
+					p.sendMessage("ï¿½E");
+					p.sendMessage("ï¿½E");
+					p.sendMessage("ï¿½bï¿½LCLICKTEST ï¿½7Resultados Calculados:");
+					p.sendMessage("ï¿½7");
+					p.sendMessage("ï¿½7ï¿½ Tempo do teste ï¿½b10 Segundos");
+					p.sendMessage("ï¿½7ï¿½ Clicks que voc\u00ea deu ï¿½b" + p.getLevel());
+					p.sendMessage("ï¿½E");
 					p.setLevel(0);
 				}
 			}

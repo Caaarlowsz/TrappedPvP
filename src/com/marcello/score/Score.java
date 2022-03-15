@@ -8,7 +8,7 @@ import org.bukkit.scoreboard.Objective;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.Team;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KillsDeathsMoney;
 import com.marcello.utils.KitAPI;
 
@@ -17,45 +17,45 @@ public class Score {
 	private static Integer animationI;
 
 	static {
-		Score.animation = new String[] { "§b§lTRAPPED", "§b§lTRAPPED", "§f§lT§b§lRAPPED", "§b§lT§f§lR§b§lAPPED",
-				"§b§lTR§f§lA§b§lPPED", "§b§lTRA§F§LP§B§LPED", "§b§lTRAP§f§lP§b§lED", "§b§lTRAPP§f§lE§b§lD",
-				"§b§lTRAPPED§f§lMC", "§b§lTRAPPED", "§bTRAPPED§f§lMC", "§b§lTRAPPED", "§0§l§kTRAPPED§f§lMC" };
+		Score.animation = new String[] { "ï¿½bï¿½lTRAPPED", "ï¿½bï¿½lTRAPPED", "ï¿½fï¿½lTï¿½bï¿½lRAPPED", "ï¿½bï¿½lTï¿½fï¿½lRï¿½bï¿½lAPPED",
+				"ï¿½bï¿½lTRï¿½fï¿½lAï¿½bï¿½lPPED", "ï¿½bï¿½lTRAï¿½Fï¿½LPï¿½Bï¿½LPED", "ï¿½bï¿½lTRAPï¿½fï¿½lPï¿½bï¿½lED", "ï¿½bï¿½lTRAPPï¿½fï¿½lEï¿½bï¿½lD",
+				"ï¿½bï¿½lTRAPPEDï¿½fï¿½lMC", "ï¿½bï¿½lTRAPPED", "ï¿½bTRAPPEDï¿½fï¿½lMC", "ï¿½bï¿½lTRAPPED", "ï¿½0ï¿½lï¿½kTRAPPEDï¿½fï¿½lMC" };
 		Score.animationI = 0;
 	}
 
 	public static void setScore(final Player p) {
 		final Scoreboard score = Bukkit.getScoreboardManager().getNewScoreboard();
 		final Objective o = score.registerNewObjective("dummy", "dummy");
-		o.setDisplayName("§b§lTRAPPED§f§lMC");
+		o.setDisplayName("ï¿½bï¿½lTRAPPEDï¿½fï¿½lMC");
 		o.setDisplaySlot(DisplaySlot.SIDEBAR);
 		o.setDisplaySlot(DisplaySlot.SIDEBAR);
 		final Team kills = score.registerNewTeam("kills");
-		final OfflinePlayer of0 = Bukkit.getOfflinePlayer("§fMatou §7\u279c §3");
+		final OfflinePlayer of0 = Bukkit.getOfflinePlayer("ï¿½fMatou ï¿½7\u279c ï¿½3");
 		kills.addPlayer(of0);
 		kills.setSuffix(new StringBuilder(String.valueOf(KillsDeathsMoney.getKills(p))).toString());
 		final Team deaths = score.registerNewTeam("deaths");
-		final OfflinePlayer of2 = Bukkit.getOfflinePlayer("§fMortes §7\u279c §3");
+		final OfflinePlayer of2 = Bukkit.getOfflinePlayer("ï¿½fMortes ï¿½7\u279c ï¿½3");
 		deaths.addPlayer(of2);
 		deaths.setSuffix(new StringBuilder(String.valueOf(KillsDeathsMoney.getDeaths(p))).toString());
 		final Team money = score.registerNewTeam("money");
-		final OfflinePlayer of3 = Bukkit.getOfflinePlayer("§fCoins §7\u279c §3");
+		final OfflinePlayer of3 = Bukkit.getOfflinePlayer("ï¿½fCoins ï¿½7\u279c ï¿½3");
 		money.addPlayer(of3);
 		money.setSuffix(new StringBuilder(String.valueOf(KillsDeathsMoney.getMoney(p))).toString());
 		final Team kit = score.registerNewTeam("kit");
-		final OfflinePlayer of4 = Bukkit.getOfflinePlayer("§fKit §7\u279c  §3");
+		final OfflinePlayer of4 = Bukkit.getOfflinePlayer("ï¿½fKit ï¿½7\u279c  ï¿½3");
 		kit.addPlayer(of4);
 		kit.setSuffix(KitAPI.getKit(p));
 		final Team online = score.registerNewTeam("online");
-		final OfflinePlayer of5 = Bukkit.getOfflinePlayer("§fOnline §7\u279c §3");
+		final OfflinePlayer of5 = Bukkit.getOfflinePlayer("ï¿½fOnline ï¿½7\u279c ï¿½3");
 		online.addPlayer(of5);
 		online.setSuffix(
-				String.valueOf(String.valueOf(Bukkit.getOnlinePlayers().length)) + "§3/§3" + Bukkit.getMaxPlayers());
+				String.valueOf(String.valueOf(Bukkit.getOnlinePlayers().length)) + "ï¿½3/ï¿½3" + Bukkit.getMaxPlayers());
 		o.getScore(of0).setScore(7);
 		o.getScore(of2).setScore(6);
 		o.getScore(of3).setScore(5);
-		o.getScore(Bukkit.getOfflinePlayer("§f§l")).setScore(4);
+		o.getScore(Bukkit.getOfflinePlayer("ï¿½fï¿½l")).setScore(4);
 		o.getScore(of4).setScore(2);
-		o.getScore(Bukkit.getOfflinePlayer("§9§l")).setScore(1);
+		o.getScore(Bukkit.getOfflinePlayer("ï¿½9ï¿½l")).setScore(1);
 		o.getScore(of5).setScore(0);
 		p.setScoreboard(score);
 	}
@@ -73,13 +73,13 @@ public class Score {
 			deaths.setSuffix("0");
 			money.setSuffix("0");
 			kit.setSuffix(KitAPI.getKit(p));
-			online.setSuffix(String.valueOf(String.valueOf(Bukkit.getOnlinePlayers().length)) + "§6/§e"
+			online.setSuffix(String.valueOf(String.valueOf(Bukkit.getOnlinePlayers().length)) + "ï¿½6/ï¿½e"
 					+ Bukkit.getMaxPlayers());
 		}
 	}
 
 	public static void timerUpdate() {
-		Main.plugin.getServer().getScheduler().scheduleSyncRepeatingTask(Main.plugin, (Runnable) new Runnable() {
+		TrappedPvP.plugin.getServer().getScheduler().scheduleSyncRepeatingTask(TrappedPvP.plugin, (Runnable) new Runnable() {
 			@Override
 			public void run() {
 				Player[] onlinePlayers;

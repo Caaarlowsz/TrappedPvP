@@ -14,7 +14,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.score.Score;
 import com.marcello.utils.KitAPI;
 import com.marcello.utils.WarpsAPI;
@@ -37,16 +37,16 @@ public class SpawnCommand extends WarpsAPI implements CommandExecutor {
 
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String label, final String[] args) {
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoc\u00ea N\u00e3o Pode usar isso No Console!");
+			sender.sendMessage("ï¿½cVoc\u00ea N\u00e3o Pode usar isso No Console!");
 			return true;
 		}
 		final Player p = (Player) sender;
 		if (args.length == 0) {
 			SpawnCommand.segundos.add(p.getName());
-			p.sendMessage("§2§LWARP §7Teleportando para o spawn em §a3 §7segundos");
+			p.sendMessage("ï¿½2ï¿½LWARP ï¿½7Teleportando para o spawn em ï¿½a3 ï¿½7segundos");
 			p.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 250, 50));
 			p.addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 250, 50));
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					if (SpawnCommand.segundos.contains(p.getName())) {
@@ -79,7 +79,7 @@ public class SpawnCommand extends WarpsAPI implements CommandExecutor {
 						p.sendMessage("  ");
 						p.sendMessage("  ");
 						p.sendMessage("  ");
-						p.sendMessage("§2§LWARP §7Voc\u00ea foi teleportado para o §a§lSPAWN");
+						p.sendMessage("ï¿½2ï¿½LWARP ï¿½7Voc\u00ea foi teleportado para o ï¿½aï¿½lSPAWN");
 						WarpsAPI.ir(p, "spawn");
 						p.setLevel(0);
 						SpawnCommand.segundos.remove(p.getName());
@@ -96,27 +96,27 @@ public class SpawnCommand extends WarpsAPI implements CommandExecutor {
 							p.setHealth(20);
 							SpawnCommand.kits = new ItemStack(Material.CHEST);
 							(SpawnCommand.kitsmeta = SpawnCommand.kits.getItemMeta())
-									.setDisplayName("§bKits §7(Clique)");
+									.setDisplayName("ï¿½bKits ï¿½7(Clique)");
 							SpawnCommand.kits.setItemMeta(SpawnCommand.kitsmeta);
 							SpawnCommand.admins = new ItemStack(Material.getMaterial(397), 1, (short) 3);
 							(SpawnCommand.adminsmeta = SpawnCommand.admins.getItemMeta())
-									.setDisplayName("§bUltils §7(Clique)");
+									.setDisplayName("ï¿½bUltils ï¿½7(Clique)");
 							SpawnCommand.admins.setItemMeta(SpawnCommand.adminsmeta);
 							SpawnCommand.warps = new ItemStack(Material.BOOK);
 							(SpawnCommand.warpsmeta = SpawnCommand.warps.getItemMeta())
-									.setDisplayName("§bWarps §7(Clique)");
+									.setDisplayName("ï¿½bWarps ï¿½7(Clique)");
 							SpawnCommand.warps.setItemMeta(SpawnCommand.warpsmeta);
 							SpawnCommand.click = new ItemStack(Material.PAPER);
 							(SpawnCommand.clickmeta = SpawnCommand.click.getItemMeta())
-									.setDisplayName("§bClick §7(Clique)");
+									.setDisplayName("ï¿½bClick ï¿½7(Clique)");
 							SpawnCommand.click.setItemMeta(SpawnCommand.clickmeta);
 							SpawnCommand.loja = new ItemStack(Material.DIAMOND);
 							(SpawnCommand.lojameta = SpawnCommand.loja.getItemMeta())
-									.setDisplayName("§bLoja §7(Clique)");
+									.setDisplayName("ï¿½bLoja ï¿½7(Clique)");
 							SpawnCommand.loja.setItemMeta(SpawnCommand.lojameta);
 							SpawnCommand.perfil = new ItemStack(Material.ANVIL);
 							(SpawnCommand.perfilmeta = SpawnCommand.perfil.getItemMeta())
-									.setDisplayName("§bPerfil §7(Clique)");
+									.setDisplayName("ï¿½bPerfil ï¿½7(Clique)");
 							SpawnCommand.perfil.setItemMeta(SpawnCommand.perfilmeta);
 							p.getInventory().setItem(1, SpawnCommand.loja);
 							p.getInventory().setItem(5, SpawnCommand.warps);
@@ -129,7 +129,7 @@ public class SpawnCommand extends WarpsAPI implements CommandExecutor {
 			}, 100L);
 		} else if (args[0].equalsIgnoreCase("set") && p.hasPermission("cmd.setarenas")) {
 			WarpsAPI.Set(p, "spawn");
-			p.sendMessage("§2§LWARP §7Voc\u00ea setou a warp §a§lSPAWN");
+			p.sendMessage("ï¿½2ï¿½LWARP ï¿½7Voc\u00ea setou a warp ï¿½aï¿½lSPAWN");
 		}
 		return false;
 	}

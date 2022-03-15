@@ -15,7 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class TimeLord implements Listener {
@@ -40,7 +40,7 @@ public class TimeLord implements Listener {
 		if ((event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK)
 				&& player.getItemInHand().getType() == Material.WATCH && KitAPI.getKit(player) == "TimeLord") {
 			if (TimeLord.cooldownt.contains(player.getName())) {
-				player.sendMessage("§c§lKIT §7Seu kit §4§lTIMELORD §7est\u00e1 em cooldown aguarde alguns segundos");
+				player.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lTIMELORD ï¿½7est\u00e1 em cooldown aguarde alguns segundos");
 			} else {
 				for (final Entity frozen : player.getNearbyEntities(2.0, 3.0, 2.0)) {
 					if (frozen != null && frozen instanceof Player) {
@@ -52,13 +52,13 @@ public class TimeLord implements Listener {
 						player.getWorld().playSound(player.getLocation(), Sound.WITHER_SHOOT, 10.0f, 1.0f);
 						TimeLord.freezing.add(player.getName());
 						TimeLord.cooldownt.add(player.getName());
-						Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+						Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 								(Runnable) new Runnable() {
 									@Override
 									public void run() {
 										TimeLord.freezing.remove(player.getName());
 										TimeLord.cooldownt.remove(player.getName());
-										player.sendMessage("§c§lKIT §7Seu kit §4§lTIMELORD §7saiu do cooldown");
+										player.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lTIMELORD ï¿½7saiu do cooldown");
 									}
 								}, 500L);
 					}
@@ -73,8 +73,8 @@ public class TimeLord implements Listener {
 		if (TimeLord.freeze.contains(player.getName()) && !TimeLord.freezing.contains(player.getName())) {
 			event.setTo(player.getLocation());
 			player.sendMessage(
-					"§c§lKIT §7um player com o kit §4§lTIMELORD §7paralizou voc\u00ea aguarde alguns segundos");
-			Main.getInstace().getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+					"ï¿½cï¿½lKIT ï¿½7um player com o kit ï¿½4ï¿½lTIMELORD ï¿½7paralizou voc\u00ea aguarde alguns segundos");
+			TrappedPvP.getInstace().getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {

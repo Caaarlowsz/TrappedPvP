@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerToggleSneakEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.api.CooldownAPI;
 import com.marcello.utils.KitAPI;
 
@@ -28,7 +28,7 @@ public class Ajnin implements Listener {
 			final Player hitado = (Player) e.getEntity();
 			if (KitAPI.getKit(hitou) == "Ajnin" && !Ajnin.a.containsKey(hitou)) {
 				Ajnin.a.put(hitou, hitado);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getPlugin(null),
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getPlugin(null),
 						(Runnable) new Runnable() {
 							@Override
 							public void run() {
@@ -44,7 +44,7 @@ public class Ajnin implements Listener {
 	public void a(final PlayerToggleSneakEvent e) {
 		final Player hitou = e.getPlayer();
 		if (e.isSneaking() && KitAPI.getKit(hitou) == "Ajnin" && CooldownAPI.Cooldown.containsKey(hitou.getName())) {
-			hitou.sendMessage("§c§lKIT §7Seu kit §4§lAJNIN§7 est\u00e1 em cooldown aguarde alguns segundos");
+			hitou.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lAJNINï¿½7 est\u00e1 em cooldown aguarde alguns segundos");
 			return;
 		}
 		if (e.isSneaking() && KitAPI.getKit(hitou) == "Ajnin" && Ajnin.a.containsKey(hitou)) {
@@ -53,7 +53,7 @@ public class Ajnin implements Listener {
 				hitado.teleport(hitou.getLocation());
 				CooldownAPI.addCooldown(hitou, 7);
 			} else {
-				hitou.sendMessage("§c§lKIT §7Voc\u00ea est\u00e1 muito longe do ultimo player hitado");
+				hitou.sendMessage("ï¿½cï¿½lKIT ï¿½7Voc\u00ea est\u00e1 muito longe do ultimo player hitado");
 			}
 		}
 	}

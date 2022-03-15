@@ -12,7 +12,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class Speed1v1 implements Listener {
 	public static boolean Partida1;
@@ -46,16 +46,16 @@ public class Speed1v1 implements Listener {
 				Speed1v1.Nome = p.getName();
 				Speed1v1.Partida1 = true;
 				p.getInventory().removeItem(new ItemStack[] { Join1v1.Cinza });
-				p.sendMessage("§4§l1v1: §7Voc\u00ea entro na fila de 1v1 rapido.");
+				p.sendMessage("ï¿½4ï¿½l1v1: ï¿½7Voc\u00ea entro na fila de 1v1 rapido.");
 				Speed1v1.Iniciou.add(p);
 				this.Trocar(p);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(TrappedPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						Speed1v1.NeginhoSegundos.add(p);
 					}
 				}, 2L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask(Main.plugin, (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask(TrappedPvP.plugin, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (Speed1v1.NeginhoSegundos.contains(p)) {
@@ -68,7 +68,7 @@ public class Speed1v1 implements Listener {
 							p.getInventory().removeItem(new ItemStack[] { Join1v1.Verde3 });
 							if (!Events1v1.inPvP.contains(p)) {
 								p.updateInventory();
-								p.sendMessage("§4§l1v1: §7Nenhuma partida foi localizada.");
+								p.sendMessage("ï¿½4ï¿½l1v1: ï¿½7Nenhuma partida foi localizada.");
 								p.getInventory().setItem(5, Join1v1.Cinza);
 							}
 						}
@@ -92,7 +92,7 @@ public class Speed1v1 implements Listener {
 				|| p.getItemInHand().equals((Object) Join1v1.Verde3))
 				&& (event.getAction() == Action.RIGHT_CLICK_BLOCK || event.getAction() == Action.RIGHT_CLICK_AIR)
 				&& Speed1v1.NeginhoSegundos.contains(p)) {
-			p.sendMessage("§4§l1v1: §7Voc\u00ea j\u00e1 est\u00e1 na fila...");
+			p.sendMessage("ï¿½4ï¿½l1v1: ï¿½7Voc\u00ea j\u00e1 est\u00e1 na fila...");
 		}
 	}
 }

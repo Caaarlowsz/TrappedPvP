@@ -13,7 +13,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Phantom implements Listener {
@@ -22,7 +22,7 @@ public class Phantom implements Listener {
 		final Player p = e.getPlayer();
 		if (KitAPI.getKit(p) == "Phantom" && e.getMaterial() == Material.FEATHER) {
 			if (!KitAPI.KitDelay.containsKey(p.getName())) {
-				p.sendMessage("§c§lKIT §7Voc\u00ea utilizou seu kit §4§lPHANTOM §7agora pode voar por §c5 §7segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Voc\u00ea utilizou seu kit ï¿½4ï¿½lPHANTOM ï¿½7agora pode voar por ï¿½c5 ï¿½7segundos");
 				final ItemStack is = new ItemStack(Material.LEATHER_HELMET);
 				final LeatherArmorMeta ism = (LeatherArmorMeta) is.getItemMeta();
 				ism.setColor(Color.WHITE);
@@ -46,57 +46,57 @@ public class Phantom implements Listener {
 				p.setAllowFlight(true);
 				p.setFlying(true);
 				KitAPI.KitDelay.put(p.getName(), 30);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (KitAPI.getKit(p) == "Phantom" && KitAPI.KitDelay.containsKey(p.getName())
 								&& KitAPI.KitDelay.get(p.getName()) <= 0) {
 							KitAPI.KitDelay.remove(p.getName());
-							p.sendMessage("§c§lKIT §7Seu kit §4§lPHANTOM §7saiu do cooldown");
+							p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lPHANTOM ï¿½7saiu do cooldown");
 						}
 					}
 				}, 600L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setLevel(5);
 					}
 				}, 0L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setLevel(4);
 					}
 				}, 20L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setLevel(3);
-						p.sendMessage("§c§lKIT §7A habilidade do seu kit §4§lPHANTOM §7acabara em §c3 §7segundos");
+						p.sendMessage("ï¿½cï¿½lKIT ï¿½7A habilidade do seu kit ï¿½4ï¿½lPHANTOM ï¿½7acabara em ï¿½c3 ï¿½7segundos");
 					}
 				}, 40L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setLevel(2);
-						p.sendMessage("§c§lKIT §7A habilidade do seu kit §4§lPHANTOM §7acabara em §c2 §7segundos");
+						p.sendMessage("ï¿½cï¿½lKIT ï¿½7A habilidade do seu kit ï¿½4ï¿½lPHANTOM ï¿½7acabara em ï¿½c2 ï¿½7segundos");
 					}
 				}, 60L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						p.setLevel(1);
-						p.sendMessage("§c§lKIT §7A habilidade do seu kit §4§lPHANTOM §7acabara em §c1 §7segundos");
+						p.sendMessage("ï¿½cï¿½lKIT ï¿½7A habilidade do seu kit ï¿½4ï¿½lPHANTOM ï¿½7acabara em ï¿½c1 ï¿½7segundos");
 					}
 				}, 80L);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (KitAPI.getKit(p) == "Phantom" && KitAPI.KitDelay.containsKey(p.getName())
 								&& KitAPI.KitDelay.get(p.getName()) <= 30) {
 							p.setLevel(0);
 						}
-						p.sendMessage("§c§lKIT §7A habilidade do seu kit §4§lPHANTOM §7acabou");
+						p.sendMessage("ï¿½cï¿½lKIT ï¿½7A habilidade do seu kit ï¿½4ï¿½lPHANTOM ï¿½7acabou");
 						p.getInventory().setHelmet(new ItemStack(Material.AIR));
 						p.getInventory().setChestplate(new ItemStack(Material.AIR));
 						p.getInventory().setLeggings(new ItemStack(Material.AIR));
@@ -107,7 +107,7 @@ public class Phantom implements Listener {
 					}
 				}, 100L);
 			} else {
-				p.sendMessage("§c§lKIT §7Seu kit §4§lPHANTOM §7est\u00e1 em cooldown aguarde alguns segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lPHANTOM ï¿½7est\u00e1 em cooldown aguarde alguns segundos");
 			}
 		}
 	}

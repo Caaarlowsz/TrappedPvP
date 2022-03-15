@@ -9,7 +9,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Thor implements Listener {
@@ -23,18 +23,18 @@ public class Thor implements Listener {
 				p.getWorld().strikeLightningEffect(loc);
 				p.getWorld().strikeLightningEffect(loc.add(1.0, 0.0, 1.0));
 				KitAPI.KitDelay.put(p.getName(), 15);
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(), (Runnable) new Runnable() {
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(), (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						if (KitAPI.getKit(p) == "Thor" && KitAPI.KitDelay.containsKey(p.getName())
 								&& KitAPI.KitDelay.get(p.getName()) <= 0) {
 							KitAPI.KitDelay.remove(p.getName());
-							p.sendMessage("§c§lKIT §7Seu kit §4§lTHOR §7saiu do cooldown");
+							p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lTHOR ï¿½7saiu do cooldown");
 						}
 					}
 				}, 300L);
 			} else {
-				p.sendMessage("§c§lKIT §7Seu kit §4§lTHOR §7est\u00e1 em cooldown aguarde algum segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lTHOR ï¿½7est\u00e1 em cooldown aguarde algum segundos");
 			}
 		}
 	}

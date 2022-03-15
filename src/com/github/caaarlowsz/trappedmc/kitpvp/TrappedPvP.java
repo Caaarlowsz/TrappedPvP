@@ -1,4 +1,4 @@
-package com.marcello;
+package com.github.caaarlowsz.trappedmc.kitpvp;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -10,6 +10,8 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.caaarlowsz.kitpvpapi.KitPvP;
+import com.github.caaarlowsz.kitpvpapi.KitPvPAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.ConsoleCommandSender;
@@ -158,8 +160,27 @@ import com.marcello.utils.WarpsAPI;
 
 import net.minecraft.util.com.google.common.collect.Lists;
 
-public class Main extends JavaPlugin {
-	public static Main instance;
+public class TrappedPvP extends JavaPlugin implements KitPvP {
+
+	@Override
+	public void onEnable() {
+		super.onEnable();
+		KitPvPAPI.setInstance(this);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.enable();
+	}
+
+	@Override
+	public void onDisable() {
+		super.onDisable();
+		KitPvPAPI.setInstance(null);
+
+		// TODO: Remover quando melhorar a classe principal
+		this.disable();
+	}
+
+	public static TrappedPvP instance;
 	public static Plugin plugin;
 	public File stats1;
 	public YamlConfiguration stats;
@@ -175,24 +196,24 @@ public class Main extends JavaPlugin {
 	public static ArrayList<String> login;
 
 	static {
-		Main.jogadores = Lists.newArrayList();
-		Main.Jogadores = new ArrayList<String>();
-		Main.fazendoLogin = new ArrayList<String>();
-		Main.login = new ArrayList<String>();
+		TrappedPvP.jogadores = Lists.newArrayList();
+		TrappedPvP.Jogadores = new ArrayList<String>();
+		TrappedPvP.fazendoLogin = new ArrayList<String>();
+		TrappedPvP.login = new ArrayList<String>();
 	}
 
-	public static Main getInstace() {
-		return Main.instance;
+	public static TrappedPvP getInstace() {
+		return TrappedPvP.instance;
 	}
 
 	public static Plugin getPlugin() {
-		return Main.plugin;
+		return TrappedPvP.plugin;
 	}
 
-	public void onEnable() {
-		Main.plugin = (Plugin) this;
-		(Main.instance = this).saveConfig();
-		(Main.instance = this).saveDefaultConfig();
+	public void enable() {
+		TrappedPvP.plugin = (Plugin) this;
+		(TrappedPvP.instance = this).saveConfig();
+		(TrappedPvP.instance = this).saveDefaultConfig();
 		Score.timerUpdate();
 		final File stats = new File(this.getDataFolder(), "stats.yml");
 		if (!stats.exists()) {
@@ -221,9 +242,9 @@ public class Main extends JavaPlugin {
 				for (int length = (onlinePlayers = Bukkit.getOnlinePlayers()).length, i = 0; i < length; ++i) {
 					final Player p = onlinePlayers[i];
 					final int online = Bukkit.getOnlinePlayers().length;
-					TitleAPI.sendTabTitle(p, "§3§lTRAPPED§F§LPVP\n",
-							"§7Kit Atual: §3" + KitAPI.getKit(p) + " §7| §7Rank: " + Groups.getRank(p)
-									+ " §7| §7Online: §a" + online + "\n" + "\n" + "§7Twitter: §e@RedeTrapped_");
+					TitleAPI.sendTabTitle(p, "ï¿½3ï¿½lTRAPPEDï¿½Fï¿½LPVP\n",
+							"ï¿½7Kit Atual: ï¿½3" + KitAPI.getKit(p) + " ï¿½7| ï¿½7Rank: " + Groups.getRank(p)
+									+ " ï¿½7| ï¿½7Online: ï¿½a" + online + "\n" + "\n" + "ï¿½7Twitter: ï¿½e@RedeTrapped_");
 				}
 			}
 		}.runTaskTimer((Plugin) this, 0L, 15L);
@@ -231,12 +252,12 @@ public class Main extends JavaPlugin {
 		this.Comandos();
 		Segundos1();
 		final ConsoleCommandSender e = Bukkit.getConsoleSender();
-		e.sendMessage("§e§l§b§lKitPvP §7- §fPlugin habilitado com sucesso.");
+		e.sendMessage("ï¿½eï¿½lï¿½bï¿½lKitPvP ï¿½7- ï¿½fPlugin habilitado com sucesso.");
 	}
 
-	public void onDisable() {
+	public void disable() {
 		final ConsoleCommandSender e = Bukkit.getConsoleSender();
-		e.sendMessage("§e§l§b§lKitPvP §7- §fPlugin desabilitado com sucesso.");
+		e.sendMessage("ï¿½eï¿½lï¿½bï¿½lKitPvP ï¿½7- ï¿½fPlugin desabilitado com sucesso.");
 	}
 
 	public void saveConfiguration(final File file, final YamlConfiguration config) {

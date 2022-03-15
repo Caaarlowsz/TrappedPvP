@@ -6,16 +6,16 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class TopDeathCommand implements CommandExecutor {
 	public boolean onCommand(final CommandSender sender, final Command cmd, final String Label, final String[] args) {
 		if (cmd.getName().equalsIgnoreCase("topdeaths")) {
 			final HashMap<String, Integer> players = new HashMap<String, Integer>();
-			for (final String playerName : Main.getInstace().stats.getKeys(false)) {
-				players.put(playerName, Main.getInstace().stats.getInt(String.valueOf(playerName) + ".Deaths"));
+			for (final String playerName : TrappedPvP.getInstace().stats.getKeys(false)) {
+				players.put(playerName, TrappedPvP.getInstace().stats.getInt(String.valueOf(playerName) + ".Deaths"));
 			}
-			sender.sendMessage("§e§l          TOPDEATHS!");
+			sender.sendMessage("ï¿½eï¿½l          TOPDEATHS!");
 			String nextTop = "";
 			Integer nextTopKills = 0;
 			for (int i = 1; i < 11; ++i) {
@@ -25,12 +25,12 @@ public class TopDeathCommand implements CommandExecutor {
 						nextTopKills = players.get(playerName2);
 					}
 				}
-				sender.sendMessage(String.valueOf(i) + " §cº§7 " + nextTop + " \u27b8§f " + nextTopKills);
+				sender.sendMessage(String.valueOf(i) + " ï¿½cï¿½ï¿½7 " + nextTop + " \u27b8ï¿½f " + nextTopKills);
 				players.remove(nextTop);
 				nextTop = "";
 				nextTopKills = 0;
 			}
-			sender.sendMessage("§c§l          TOPDEATHS!");
+			sender.sendMessage("ï¿½cï¿½l          TOPDEATHS!");
 		}
 		return false;
 	}

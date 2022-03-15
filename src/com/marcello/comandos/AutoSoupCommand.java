@@ -14,7 +14,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class AutoSoupCommand implements CommandExecutor {
 	public static HashMap<String, ItemStack[]> saveinv;
@@ -43,21 +43,21 @@ public class AutoSoupCommand implements CommandExecutor {
 			final String[] args) {
 		final Player p = (Player) sender;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§7Comando apenas no servidor!");
+			sender.sendMessage("ï¿½7Comando apenas no servidor!");
 			return true;
 		}
 		if (comando.getName().equalsIgnoreCase("autosoup")) {
 			if (!p.hasPermission("cmd.autosoup")) {
-				p.sendMessage("§c§lPERMISSAO §7Voc\u00ea n\u00e3o possui permiss\u00e3o para este item");
+				p.sendMessage("ï¿½cï¿½lPERMISSAO ï¿½7Voc\u00ea n\u00e3o possui permiss\u00e3o para este item");
 				return true;
 			}
 			if (args.length == 0) {
-				p.sendMessage("§a§LAUTOSOUP §7Utilize o comando §a/autosoup (nick)");
+				p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Utilize o comando ï¿½a/autosoup (nick)");
 				return true;
 			}
 			final Player t = Bukkit.getPlayer(args[0]);
 			if (t == null) {
-				p.sendMessage("§a§lAUTOSOUP §7Parece que este player n\u00e3o est\u00e1 conectado ao servidor");
+				p.sendMessage("ï¿½aï¿½lAUTOSOUP ï¿½7Parece que este player n\u00e3o est\u00e1 conectado ao servidor");
 				return true;
 			}
 			final ItemStack sopa = new ItemStack(Material.MUSHROOM_SOUP);
@@ -72,29 +72,29 @@ public class AutoSoupCommand implements CommandExecutor {
 			t.closeInventory();
 			p.openInventory((Inventory) t.getInventory());
 			AutoSoupCommand.AutoSoupChecker.add(t.getName());
-			p.sendMessage("§a§LAUTOSOUP §7Iniciando analise de autosoup...");
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance, (Runnable) new Runnable() {
+			p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Iniciando analise de autosoup...");
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					p.closeInventory();
 					p.sendMessage("");
 					p.sendMessage("");
-					p.sendMessage("§a§LAUTOSOUP §7Jogador Testado: §f" + t.getName());
-					p.sendMessage("§a§LAUTOSOUP §7Tomou a sopa: §fN\u00e3o");
+					p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Jogador Testado: ï¿½f" + t.getName());
+					p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Tomou a sopa: ï¿½fN\u00e3o");
 					if (AutoSoupCommand.getAmount(p, Material.MUSHROOM_SOUP) == 1) {
-						p.sendMessage("§a§LAUTOSOUP §7Probabilidade: §fNenhuma.");
+						p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Probabilidade: ï¿½fNenhuma.");
 					} else {
 						p.sendMessage("");
 						p.sendMessage("");
-						p.sendMessage("§a§LAUTOSOUP §7Jogador Testado: §f" + t.getName());
-						p.sendMessage("§a§LAUTOSOUP §7Tomou a sopa: §fSim");
-						p.sendMessage("§a§LAUTOSOUP §7Probabilidade: §fSuspeito.");
-						p.sendMessage("         §7Solicite tela!§c         ");
+						p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Jogador Testado: ï¿½f" + t.getName());
+						p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Tomou a sopa: ï¿½fSim");
+						p.sendMessage("ï¿½aï¿½LAUTOSOUP ï¿½7Probabilidade: ï¿½fSuspeito.");
+						p.sendMessage("         ï¿½7Solicite tela!ï¿½c         ");
 					}
 					p.sendMessage("");
 				}
 			}, 30L);
-			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance, (Runnable) new Runnable() {
+			Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance, (Runnable) new Runnable() {
 				@Override
 				public void run() {
 					t.setHealth(20.0);

@@ -6,10 +6,10 @@ import java.util.List;
 
 import org.bukkit.entity.Player;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class Variaveis {
-	public static Main main;
+	public static TrappedPvP main;
 	public static String prefix;
 	public static String ip;
 	public static HashMap<String, Boolean> StaffChat;
@@ -45,8 +45,8 @@ public class Variaveis {
 		}
 	}
 
-	public static void setup(final Main m) {
-		Variaveis.prefix = m.getConfig().getString("name").replace("&", "§");
-		Variaveis.ip = m.getConfig().getString("ip").replace("&", "§");
+	public static void setup(final TrappedPvP m) {
+		Variaveis.prefix = m.getConfig().getString("name").replace("&", "ï¿½");
+		Variaveis.ip = m.getConfig().getString("ip").replace("&", "ï¿½");
 	}
 }

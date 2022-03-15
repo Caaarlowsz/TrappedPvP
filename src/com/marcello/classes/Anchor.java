@@ -10,7 +10,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Anchor implements Listener {
@@ -28,7 +28,7 @@ public class Anchor implements Listener {
 			p.setVelocity(new Vector());
 			p.playSound(p.getLocation(), Sound.ANVIL_BREAK, 4.0f, 4.0f);
 			a.playSound(p.getLocation(), Sound.ANVIL_BREAK, 4.0f, 4.0f);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -40,7 +40,7 @@ public class Anchor implements Listener {
 			a.playSound(a.getLocation(), Sound.ANVIL_BREAK, 4.0f, 4.0f);
 			p.playSound(p.getLocation(), Sound.ANVIL_BREAK, 4.0f, 4.0f);
 			p.setVelocity(new Vector());
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {

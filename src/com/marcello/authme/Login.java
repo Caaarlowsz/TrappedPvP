@@ -9,7 +9,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 
 public class Login implements Listener {
 	public static boolean premium(final String nome) {
@@ -29,23 +29,23 @@ public class Login implements Listener {
 	@EventHandler
 	public void aoLogin(final PlayerJoinEvent e) {
 		final Player p = e.getPlayer();
-		Main.login.add(p.getName());
-		if (Main.plugin.getConfig().contains("Login." + p.getName().toLowerCase() + ".senha")) {
-			Main.plugin.getServer().getScheduler().scheduleSyncRepeatingTask(Main.plugin, (Runnable) new Runnable() {
+		TrappedPvP.login.add(p.getName());
+		if (TrappedPvP.plugin.getConfig().contains("Login." + p.getName().toLowerCase() + ".senha")) {
+			TrappedPvP.plugin.getServer().getScheduler().scheduleSyncRepeatingTask(TrappedPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
-					if (Main.login.contains(p.getName())) {
-						p.sendMessage("§b§lLOGIN §7Para efetuar seu login utilize §b/login (senha)");
+					if (TrappedPvP.login.contains(p.getName())) {
+						p.sendMessage("ï¿½bï¿½lLOGIN ï¿½7Para efetuar seu login utilize ï¿½b/login (senha)");
 					}
 				}
 			}, 0L, 100L);
 		}
-		if (!Main.plugin.getConfig().contains("Login." + p.getName().toLowerCase() + ".senha")) {
-			Main.plugin.getServer().getScheduler().scheduleSyncRepeatingTask(Main.plugin, (Runnable) new Runnable() {
+		if (!TrappedPvP.plugin.getConfig().contains("Login." + p.getName().toLowerCase() + ".senha")) {
+			TrappedPvP.plugin.getServer().getScheduler().scheduleSyncRepeatingTask(TrappedPvP.plugin, (Runnable) new Runnable() {
 				@Override
 				public void run() {
-					if (Main.login.contains(p.getName())) {
-						p.sendMessage("§b§lREGISTER §7Para efetuar seu registro utilize §b/register (senha)");
+					if (TrappedPvP.login.contains(p.getName())) {
+						p.sendMessage("ï¿½bï¿½lREGISTER ï¿½7Para efetuar seu registro utilize ï¿½b/register (senha)");
 					}
 				}
 			}, 0L, 100L);

@@ -12,7 +12,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class CombatLog implements Listener {
@@ -29,9 +29,9 @@ public class CombatLog implements Listener {
 	public static String statuscombat(final Player p) {
 		String nome = "";
 		if (emCombate(p)) {
-			nome = "§aSim";
+			nome = "ï¿½aSim";
 		} else if (!emCombate(p)) {
-			nome = "§cN\u00e3o";
+			nome = "ï¿½cN\u00e3o";
 		}
 		return nome;
 	}
@@ -45,15 +45,15 @@ public class CombatLog implements Listener {
 					&& !CombatLog.emcombate.containsKey(hitter)) {
 				CombatLog.emcombate.put(p, hitter);
 				CombatLog.emcombate.put(hitter, p);
-				hitter.sendMessage("§E§LACTIVEPVP \u279c §cVoc\u00ea Est\u00e1 em Combate com §f" + p.getDisplayName());
-				p.sendMessage("§E§LACTIVEPVP \u279c §cVoc\u00ea est\u00e1 em Combate com §f" + hitter.getDisplayName());
-				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance, (Runnable) new Runnable() {
+				hitter.sendMessage("ï¿½Eï¿½LACTIVEPVP \u279c ï¿½cVoc\u00ea Est\u00e1 em Combate com ï¿½f" + p.getDisplayName());
+				p.sendMessage("ï¿½Eï¿½LACTIVEPVP \u279c ï¿½cVoc\u00ea est\u00e1 em Combate com ï¿½f" + hitter.getDisplayName());
+				Bukkit.getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance, (Runnable) new Runnable() {
 					@Override
 					public void run() {
 						CombatLog.emcombate.remove(p);
 						CombatLog.emcombate.remove(hitter);
-						hitter.sendMessage("§E§LACTIVEPVP \u279c §aVoc\u00ea saiu de combate!");
-						p.sendMessage("§E§LACTIVEPVP \u279c §aVoc\u00ea saiu de combate!");
+						hitter.sendMessage("ï¿½Eï¿½LACTIVEPVP \u279c ï¿½aVoc\u00ea saiu de combate!");
+						p.sendMessage("ï¿½Eï¿½LACTIVEPVP \u279c ï¿½aVoc\u00ea saiu de combate!");
 					}
 				}, 80L);
 			}
@@ -66,7 +66,7 @@ public class CombatLog implements Listener {
 		if (CombatLog.emcombate.containsKey(p)) {
 			final Player t = CombatLog.emcombate.get(p);
 			p.teleport(p.getWorld().getSpawnLocation());
-			t.sendMessage("§E§LACTIVEPVP \u279c §aVoc\u00ea saiu de combate!");
+			t.sendMessage("ï¿½Eï¿½LACTIVEPVP \u279c ï¿½aVoc\u00ea saiu de combate!");
 			CombatLog.emcombate.remove(p);
 			CombatLog.emcombate.remove(t);
 		}
@@ -81,8 +81,8 @@ public class CombatLog implements Listener {
 			p.teleport(p.getWorld().getSpawnLocation());
 			CombatLog.emcombate.remove(p);
 			CombatLog.emcombate.remove(t);
-			Bukkit.broadcastMessage("§E§LACTIVEPVP \u279c §cO Jogador §f" + p.getName() + "§c Deslogou em PvP!");
-			t.sendMessage("§aVoce esta fora de combate");
+			Bukkit.broadcastMessage("ï¿½Eï¿½LACTIVEPVP \u279c ï¿½cO Jogador ï¿½f" + p.getName() + "ï¿½c Deslogou em PvP!");
+			t.sendMessage("ï¿½aVoce esta fora de combate");
 		}
 	}
 

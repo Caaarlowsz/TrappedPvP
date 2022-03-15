@@ -16,7 +16,7 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.api.CooldownAPI;
 import com.marcello.utils.KitAPI;
 
@@ -46,10 +46,10 @@ public class Rain implements Listener {
 		if (p.getItemInHand().getType() == Material.ARROW && KitAPI.getKit(p).equalsIgnoreCase("rain")
 				&& KitAPI.getKit(p).equalsIgnoreCase("rain")) {
 			if (CooldownAPI.Cooldown.containsKey(p.getName())) {
-				p.sendMessage("§c§lKIT §7Seu kit §4§lRAIN §7est\u00e1 em cooldown aguarde alguns segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lRAIN ï¿½7est\u00e1 em cooldown aguarde alguns segundos");
 				return;
 			}
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -60,7 +60,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc, EntityType.ARROW);
 						}
 					}, 40L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -71,7 +71,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc2, EntityType.ARROW);
 						}
 					}, 35L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -82,7 +82,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc3, EntityType.ARROW);
 						}
 					}, 30L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -93,7 +93,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc3, EntityType.ARROW);
 						}
 					}, 25L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -104,7 +104,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc3, EntityType.ARROW);
 						}
 					}, 20L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -115,7 +115,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc4, EntityType.ARROW);
 						}
 					}, 5L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -126,7 +126,7 @@ public class Rain implements Listener {
 									.spawnEntity(loc6, EntityType.ARROW);
 						}
 					}, 3L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
@@ -135,7 +135,7 @@ public class Rain implements Listener {
 							r.addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 10, 0));
 						}
 					}, 2L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.instance,
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.instance,
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {

@@ -17,7 +17,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.util.Vector;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.utils.KitAPI;
 
 public class Forcefield implements Listener {
@@ -43,33 +43,33 @@ public class Forcefield implements Listener {
 				event.setCancelled(true);
 			}
 			if (this.cooldownm.contains(p)) {
-				p.sendMessage("§c§lKIT §7Seu kit §4§lFORCEFIELD§7 est\u00e1 em cooldown aguarde alguns segundos");
+				p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lFORCEFIELDï¿½7 est\u00e1 em cooldown aguarde alguns segundos");
 				return;
 			}
 			final Location loc = p.getLocation();
 			p.getWorld().playSound(loc, Sound.MAGMACUBE_WALK2, 5.0f, -5.0f);
 			this.cooldownm.add(p);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							Forcefield.forcefielddano.add(p);
-							p.sendMessage("§c§LKIT §7Seu kit forcefield foi ativado");
+							p.sendMessage("ï¿½cï¿½LKIT ï¿½7Seu kit forcefield foi ativado");
 						}
 					}, 0L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							Forcefield.forcefielddano.remove(p);
 						}
 					}, 300L);
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) Main.getInstace(),
+			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) TrappedPvP.getInstace(),
 					(Runnable) new Runnable() {
 						@Override
 						public void run() {
 							Forcefield.this.cooldownm.remove(p);
-							p.sendMessage("§c§lKIT §7Seu kit §4§lFORCEFIELD §7saiu de cooldown, pode usa-lo novamente");
+							p.sendMessage("ï¿½cï¿½lKIT ï¿½7Seu kit ï¿½4ï¿½lFORCEFIELD ï¿½7saiu de cooldown, pode usa-lo novamente");
 							p.getWorld().playSound(p.getLocation(), Sound.BURP, 5.0f, 5.0f);
 						}
 					}, 1000L);
@@ -85,7 +85,7 @@ public class Forcefield implements Listener {
 				final Player local = (Player) inimigos;
 				local.damage(3.0);
 				local.sendMessage(
-						"§c§lKIT §7Voc\u00ea est\u00e1 perto de um §4§lFORCEFIELD §7isso \u00e9 um kit n\u00e3o um hack");
+						"ï¿½cï¿½lKIT ï¿½7Voc\u00ea est\u00e1 perto de um ï¿½4ï¿½lFORCEFIELD ï¿½7isso \u00e9 um kit n\u00e3o um hack");
 				inimigos.setVelocity(new Vector(0.2, 0.0, 0.2));
 			}
 		}

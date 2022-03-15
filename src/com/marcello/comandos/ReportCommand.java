@@ -12,14 +12,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-import com.marcello.Main;
+import com.github.caaarlowsz.trappedmc.kitpvp.TrappedPvP;
 import com.marcello.api.ChatInterativo;
 
 public class ReportCommand implements CommandExecutor {
 	public ArrayList<String> reported;
-	private Main plugin;
+	private TrappedPvP plugin;
 
-	public ReportCommand(final Main plugin) {
+	public ReportCommand(final TrappedPvP plugin) {
 		this.reported = new ArrayList<String>();
 		this.plugin = plugin;
 	}
@@ -28,7 +28,7 @@ public class ReportCommand implements CommandExecutor {
 			final String[] args) {
 		final Player p = (Player) sender;
 		if (!(sender instanceof Player)) {
-			sender.sendMessage("§cVoc\u00ea N\u00e3o Pode usar isso No Console!");
+			sender.sendMessage("ï¿½cVoc\u00ea N\u00e3o Pode usar isso No Console!");
 			return false;
 		}
 		if (commandLabel.equalsIgnoreCase("report")) {
@@ -36,33 +36,33 @@ public class ReportCommand implements CommandExecutor {
 				final Player target = p.getServer().getPlayer(args[0]);
 				if (target != null) {
 					if (this.reported.contains(p.getName())) {
-						p.sendMessage("§5§lREPORT §7Aguarde alguns segundos para pode reportar novamente");
+						p.sendMessage("ï¿½5ï¿½lREPORT ï¿½7Aguarde alguns segundos para pode reportar novamente");
 						return true;
 					}
 					final String reportMsg = StringUtils.join((Object[]) Arrays.copyOfRange(args, 1, args.length), " ");
 					this.reported.add(p.getName());
-					p.sendMessage("§5§lREPORT §7Report enviado com sucesso obrigado por ajudar nossos staffers");
+					p.sendMessage("ï¿½5ï¿½lREPORT ï¿½7Report enviado com sucesso obrigado por ajudar nossos staffers");
 					Player[] arrayOfPlayer;
 					for (int j = (arrayOfPlayer = Bukkit.getOnlinePlayers()).length, i = 0; i < j; ++i) {
 						final Player s = arrayOfPlayer[i];
 						if (s.hasPermission("ver.report")) {
 							s.playSound(s.getLocation(), Sound.ANVIL_USE, 15.0f, 1.0f);
-							s.sendMessage("§c ");
-							s.sendMessage("§c ");
-							s.sendMessage("§c ");
-							s.sendMessage("§c ");
-							s.sendMessage("      §7» §5§lREPORT        ");
-							s.sendMessage("§c");
-							s.sendMessage("§7» §fJogador Reportado: §d" + target.getName());
-							s.sendMessage("§7» §fMotivo: §d" + reportMsg);
-							s.sendMessage("§7» §fReporter: §d" + p.getName());
-							s.sendMessage("§7» §fServidor: §dKitPvP");
+							s.sendMessage("ï¿½c ");
+							s.sendMessage("ï¿½c ");
+							s.sendMessage("ï¿½c ");
+							s.sendMessage("ï¿½c ");
+							s.sendMessage("      ï¿½7ï¿½ ï¿½5ï¿½lREPORT        ");
+							s.sendMessage("ï¿½c");
+							s.sendMessage("ï¿½7ï¿½ ï¿½fJogador Reportado: ï¿½d" + target.getName());
+							s.sendMessage("ï¿½7ï¿½ ï¿½fMotivo: ï¿½d" + reportMsg);
+							s.sendMessage("ï¿½7ï¿½ ï¿½fReporter: ï¿½d" + p.getName());
+							s.sendMessage("ï¿½7ï¿½ ï¿½fServidor: ï¿½dKitPvP");
 							ChatInterativo.Comando(s.getName(),
-									"§7» Teleportar-se at\u00e9 o suspeito clique §5§l§nAQUI",
-									"/tp " + target.getName(), "§7» Ir At\u00e9 §d" + target.getName());
+									"ï¿½7ï¿½ Teleportar-se at\u00e9 o suspeito clique ï¿½5ï¿½lï¿½nAQUI",
+									"/tp " + target.getName(), "ï¿½7ï¿½ Ir At\u00e9 ï¿½d" + target.getName());
 							ChatInterativo.Comando(s.getName(),
-									"§7» Teleportar-se at\u00e9 quem reportou clique §5§l§nAQUI", "/tp " + p.getName(),
-									"§7» Ir At\u00e9 §d" + p.getName());
+									"ï¿½7ï¿½ Teleportar-se at\u00e9 quem reportou clique ï¿½5ï¿½lï¿½nAQUI", "/tp " + p.getName(),
+									"ï¿½7ï¿½ Ir At\u00e9 ï¿½d" + p.getName());
 							Bukkit.getServer().getScheduler().scheduleSyncDelayedTask((Plugin) this.plugin,
 									(Runnable) new Runnable() {
 										@Override
@@ -73,10 +73,10 @@ public class ReportCommand implements CommandExecutor {
 						}
 					}
 				} else {
-					p.sendMessage("§5§lREPORT §7Este player est\u00e1 offline no momento");
+					p.sendMessage("ï¿½5ï¿½lREPORT ï¿½7Este player est\u00e1 offline no momento");
 				}
 			} else {
-				p.sendMessage("§5§lREPORT §7Utilize o comando §5/report (nick) (motivo)");
+				p.sendMessage("ï¿½5ï¿½lREPORT ï¿½7Utilize o comando ï¿½5/report (nick) (motivo)");
 			}
 		}
 		return false;
